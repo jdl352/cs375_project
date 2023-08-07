@@ -17,8 +17,7 @@ CREATE TABLE threads(
 DROP TABLE IF EXISTS comment;
 CREATE TABLE comment(
 	commentID SERIAL PRIMARY KEY,
-    --need to link to threadID properly as key, kept as int rn
-    threadID INT,
+    threadID INT REFERENCES threads(threadID),
     username VARCHAR(50),
     comment VARCHAR(200),
     dt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
