@@ -1,0 +1,14 @@
+.navbar_left {
+  list-style: none;
+}
+
+.navbar_left li {
+  display: inline;
+  float: left;
+  text-align: center;
+}
+
+.navbar_right {
+  list-style: none;
+  float: right;
+}
