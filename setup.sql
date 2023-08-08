@@ -4,7 +4,7 @@ CREATE DATABASE projectdb;
 DROP TABLE IF EXISTS userLogin;
 CREATE TABLE userLogin(
 	id SERIAL PRIMARY KEY,
-    username VARCHAR(50),
+    username VARCHAR(50) UNIQUE,
     password VARCHAR(100)
 );
 DROP TABLE IF EXISTS threads;
