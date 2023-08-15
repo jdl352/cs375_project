@@ -1,14 +1,17 @@
 .navbar_left {
   list-style: none;
+  width: fit-content;
 }
 
 .navbar_left li {
-  display: inline;
-  float: left;
-  text-align: center;
+  display: inline-flex;
+  flex-direction: row;
+  margin: 0.5rem;
 }
 
 .navbar_right {
+  position: absolute;
   list-style: none;
-  float: right;
+  right: 0.5rem;
+  top: 0.5rem;
 }
