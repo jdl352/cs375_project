@@ -4,7 +4,7 @@ import styles from "./navbar.module.css";
 export default function Navbar() {
   return (
     <header>
-      <ul>
+      <ul className={styles.navbar_left}>
         <li>
           <Link href="/foryou">For You</Link>
         </li>
@@ -17,7 +17,7 @@ export default function Navbar() {
       </ul>
       <ul className={styles.navbar_right}>
         <li>
-            <Link href="/profile">Insert username here</Link>
+          <Link href="/profile">Insert username here</Link>
         </li>
       </ul>
     </header>
