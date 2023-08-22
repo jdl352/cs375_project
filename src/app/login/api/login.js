@@ -1,9 +1,9 @@
-import pool from "../../db";
+import pool from "../../../../db";
 import { withIronSessionApiRoute } from "iron-session/next";
 
 let argon2 = require("argon2");
 
-let tokenStorage = require("./tokenStorage.json");
+let tokenStorage = require("../tokenStorage.json");
 
 export default withIronSessionApiRoute(
   async (req, res) => {

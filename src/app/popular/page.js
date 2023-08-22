@@ -42,14 +42,13 @@ export default function Popular() {
     </tr>
   ));
   return (
-      <table className={styles.popularTable}>
-        <thead>
-          <td>Name</td>
-          <td>Tags</td>
-          <td>Publish Date</td>
-        </thead>
-        <tbody>{articleRows}</tbody>
-      </table>
-    </body>
+    <table className={styles.popularTable}>
+      <thead>
+        <td>Name</td>
+        <td>Tags</td>
+        <td>Publish Date</td>
+      </thead>
+      <tbody>{articleRows}</tbody>
+    </table>
   );
 }

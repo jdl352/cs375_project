@@ -1,5 +1,5 @@
 import { withIronSessionApiRoute } from "iron-session/next";
-let tokenStorage = require("./tokenStorage.json");
+let tokenStorage = require("../tokenStorage.json");
 
 export default withIronSessionApiRoute(
   function logoutRoute(req, res) {
@@ -13,5 +13,5 @@ export default withIronSessionApiRoute(
     cookieOptions: {
       secure: process.env.NODE_ENV === "production",
     },
-  }
+  },
 );

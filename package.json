@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "argon2": "^0.31.0",
+    "fs": "^0.0.1-security",
     "iron-session": "^6.3.1",
     "next": "^13.4.13",
+    "node-fs": "^0.1.7",
+    "node-gyp": "^9.4.0",
     "pg": "^8.11.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
