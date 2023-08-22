@@ -1,5 +1,8 @@
 import Link from "next/link";
 import styles from "./navbar.module.css";
+import { getServerSideProps } from "@/components/getProps";
+
+// const props = await getServerSideProps();
 
 export default function Navbar() {
   return (
@@ -17,7 +20,8 @@ export default function Navbar() {
       </ul>
       <ul className={styles.navbar_right}>
         <li>
-          <Link href="/profile">Insert username here</Link>
+          <Link href="/profile">Profile</Link> |{" "}
+          <Link href="/login">Login</Link>
         </li>
       </ul>
     </header>

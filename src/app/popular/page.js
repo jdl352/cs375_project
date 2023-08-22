@@ -42,7 +42,6 @@ export default function Popular() {
     </tr>
   ));
   return (
-    <body>
       <table className={styles.popularTable}>
         <thead>
           <td>Name</td>
