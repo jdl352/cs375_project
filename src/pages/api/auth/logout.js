@@ -1,6 +1,8 @@
 import { withIronSessionApiRoute } from "iron-session/next";
 let tokenStorage = require("../tokenStorage.json");
 
+//expects POST request with active session to destroy()
+
 export default withIronSessionApiRoute(
   function logoutRoute(req, res) {
     req.session.destroy();

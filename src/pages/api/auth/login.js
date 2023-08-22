@@ -1,9 +1,12 @@
-import pool from "../../../db";
+import pool from "../../../../db";
 import { withIronSessionApiRoute } from "iron-session/next";
 
 let argon2 = require("argon2");
 
 let tokenStorage = require("../tokenStorage.json");
+
+//expects POST requests with body.username and body.password
+//returns JSON with key "message" if error, or user otherwise.
 
 export default withIronSessionApiRoute(async (req, res) => {
     const { username, password } = await req.body;

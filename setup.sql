@@ -1,11 +1,13 @@
 DROP DATABASE IF EXISTS projectdb;
 CREATE DATABASE projectdb;
 \c projectdb
-DROP TABLE IF EXISTS userlogin;
+DROP TABLE IF EXISTS userinfo;
 CREATE TABLE userlogin(
 	id SERIAL PRIMARY KEY,
     username VARCHAR(50) UNIQUE,
-    password VARCHAR(100)
+    password VARCHAR(100),
+    favgenres text[],
+    likedarticles text[]
 );
 DROP TABLE IF EXISTS threads;
 CREATE TABLE threads(

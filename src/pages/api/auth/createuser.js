@@ -1,4 +1,4 @@
-import pool from "../../../db";
+import pool from "../../../../db";
 let argon2 = require("argon2");
 
 function validateLogin(body) {
@@ -11,6 +11,9 @@ function validateLogin(body) {
 
     return regex.test(password);
 }
+
+//expects POST request with body.username and body.password
+//returns response.ok, or response.message if error
 
 export async function createuser(req, res) {
 
