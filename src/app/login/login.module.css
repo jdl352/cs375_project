@@ -1,0 +1,10 @@
+.formDiv {
+  text-align: center;
+  display: block;
+}
+
+#loginForm {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
