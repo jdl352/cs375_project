@@ -1,6 +1,6 @@
 import { withIronSessionSsr } from "iron-session/next";
 
-let tokenStorage = require("../pages/api/tokenStorage.json");
+let tokenStorage = require("../app/login/api/tokenStorage.json");
 
 export const getServerSideProps = withIronSessionSsr(
   async function getServerSideProps({ req }) {

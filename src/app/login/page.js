@@ -1,7 +1,7 @@
 "use client";
 import styles from "./login.module.css";
 import { redirect } from "next/dist/server/api-utils";
-import withIronSessionApiRoute from "../../pages/api/login";
+import withIronSessionApiRoute from "./api/login";
 
 const doLogin = async (e) => {
   e.preventDefault();
