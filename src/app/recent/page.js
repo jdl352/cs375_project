@@ -1,52 +1,48 @@
+"use client"
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./recent.module.css";
-
-let articles = [
-  {
-    name: "Article 1",
-    date: "20230814",
-    category: "Science",
-    id: 1,
-    likes: 10,
-  },
-  {
-    name: "Article 2",
-    date: "20230810",
-    category: "Politics",
-    id: 2,
-    likes: 20,
-  },
-  {
-    name: "Article 3",
-    date: "20230728",
-    category: "Environment",
-    id: 3,
-    likes: 5,
-  },
-];
-
-articles.sort((a, b) => b.date - a.date);
-
-// Format date to look nicer, might be different
-// for each api result as well
+const NewsAPI = require('newsapi');
 
 export default function Recent() {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    const newsapi = new NewsAPI("7f5870e601864450971995b45b7846ed");
+
+    newsapi.v2.everything({
+      q: "apple",
+      from: "2023-08-18",
+      sortBy: "popularity",
+    })
+      .then((response) => {
+        console.log("API Response:", response);
+        setArticles(response.articles);
+      })
+      .catch((error) => {
+        console.error("Error fetching articles:", error);
+      });
+  }, []);
+
   const articleRows = articles.map((article) => (
-    <tr key={article.id}>
+    <tr key={article.url}>
       <td>
-        <Link href={"/article?id=" + article.id}>{article.name}</Link>
+        <Link href={article.url}>{article.title}</Link>
       </td>
-      <td>{article.category}</td>
-      <td>{article.date}</td>
+      <td>{article.source.name}</td>
+      <td>{article.publishedAt}</td>
     </tr>
   ));
+  console.log("Number of articles:", articles.length);
   return (
     <body>
       <table className={styles.recentTable}>
         <thead>
-          <td>Name</td>
-          <td>Tags</td>
-          <td>Publish Date</td>
+          <tr>
+            <th>Name</th>
+            <th>Source</th>
+            <th>Publish Date</th>
+          </tr>
         </thead>
         <tbody>{articleRows}</tbody>
       </table>
