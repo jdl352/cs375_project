@@ -66,7 +66,6 @@ newsapi.v2.topHeadlines({
     </tr>
   ));
   return (
-    <body>
       <table className={styles.popularTable}>
         <thead>
           <td>Name</td>
