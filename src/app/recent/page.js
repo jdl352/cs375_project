@@ -7,7 +7,7 @@ const NewsAPI = require('newsapi');
 export default function Recent() {
   let articles = [];
 
-    const newsapi = new NewsAPI("7f5870e601864450971995b45b7846ed");
+    const newsapi = new NewsAPI("<MY KEY>");
 
     newsapi.v2.everything({
       q: "apple",
