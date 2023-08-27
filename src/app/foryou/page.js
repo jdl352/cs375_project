@@ -41,15 +41,15 @@ export default function ForYou() {
     </tr>
   ));
   return (
-    <body>
-      <table className={styles.forYouTable}>
-        <thead>
+    <table className={styles.forYouTable}>
+      <thead>
+        <tr>
           <td>Name</td>
           <td>Tags</td>
           <td>Publish Date</td>
-        </thead>
-        <tbody>{articleRows}</tbody>
-      </table>
-    </body>
+        </tr>
+      </thead>
+      <tbody>{articleRows}</tbody>
+    </table>
   );
 }
