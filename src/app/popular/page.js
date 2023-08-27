@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import styles from "./popular.module.css";
 
@@ -42,14 +43,15 @@ export default function Popular() {
     </tr>
   ));
   return (
-      <table className={styles.popularTable}>
-        <thead>
+    <table className={styles.popularTable}>
+      <thead>
+        <tr>
           <td>Name</td>
           <td>Tags</td>
           <td>Publish Date</td>
-        </thead>
-        <tbody>{articleRows}</tbody>
-      </table>
-    </body>
+        </tr>
+      </thead>
+      <tbody>{articleRows}</tbody>
+    </table>
   );
 }
