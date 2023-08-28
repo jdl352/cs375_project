@@ -41,15 +41,15 @@ export default function Recent() {
     </tr>
   ));
   return (
-    <table className={styles.recentTable}>
-      <thead>
-        <tr>
+    <body>
+      <table className={styles.recentTable}>
+        <thead>
           <td>Name</td>
           <td>Tags</td>
           <td>Publish Date</td>
-        </tr>
-      </thead>
-      <tbody>{articleRows}</tbody>
-    </table>
+        </thead>
+        <tbody>{articleRows}</tbody>
+      </table>
+    </body>
   );
 }
