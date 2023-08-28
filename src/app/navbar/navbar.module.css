@@ -1,6 +1,8 @@
 .navbar_left {
   list-style: none;
   width: fit-content;
+  left: 0.5rem;
+  top: 0.5rem;
 }
 
 .navbar_left li {
