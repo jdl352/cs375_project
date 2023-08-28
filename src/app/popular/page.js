@@ -35,7 +35,7 @@ articles.sort((a, b) => b.likes - a.likes);
 
 export default function Popular() {
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('API KEY');
+const newsapi = new NewsAPI('f523c32aa31c4dafa3ee1f62f6890100');
 
 newsapi.v2.topHeadlines({
   category: 'business',
