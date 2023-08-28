@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./foryou.module.css";
+import ArticleRow from "../../components/articleRow/articleRow";
 
 let articles = [
   {
@@ -31,14 +32,14 @@ articles.sort((a, b) => b.date - a.date);
 // for each api result as well
 
 export default function ForYou() {
-  const articleRows = articles.map((article) => (
-    <tr key={article.id}>
-      <td>
-        <Link href={"/article?id=" + article.id}>{article.name}</Link>
-      </td>
-      <td>{article.category}</td>
-      <td>{article.date}</td>
-    </tr>
+  const articleRows = articles.map((data) => (
+    <ArticleRow
+      name={data.name}
+      date={data.date}
+      category={data.category}
+      likes={data.likes}
+      id={data.id}
+    />
   ));
   return (
     <table className={styles.forYouTable}>
