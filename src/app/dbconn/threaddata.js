@@ -64,7 +64,7 @@ export async function addThread (req, res) {
     try {
         await pool.query("INSERT INTO threads(username, meessagebody) VALUES ($1, $2)", [username, req.body.messagebody]);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        return res.status(500).json({ message: error.message });
     }
 
     return res.status(200).json({ ok : true});
