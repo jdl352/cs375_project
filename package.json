@@ -10,10 +10,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "newsapi": "^2.4.1",
     "argon2": "^0.31.0",
+    "aws-sdk": "^2.1445.0",
+    "encoding": "^0.1.13",
     "iron-session": "^6.3.1",
+    "newsapi": "^2.4.1",
     "next": "^13.4.13",
+    "nock": "^13.3.3",
     "pg": "^8.11.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
