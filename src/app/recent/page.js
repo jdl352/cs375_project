@@ -43,7 +43,7 @@ export default function Recent() {
   return (
     <table className={styles.recentTable}>
       <thead>
-      <tr>
+        <tr>
           <td></td>
           <td>Title</td>
           <td>Source</td>
