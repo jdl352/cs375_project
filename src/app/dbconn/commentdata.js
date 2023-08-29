@@ -43,3 +43,27 @@ export async function getCommentDataByUsername (req, res) {
     }
     
 }
+
+//addComment expects POST requests with an active, logged in user session, amd relevant params in body
+//params needed: threadid: int, comment: string(200)
+
+export async function addComment (req, res) {
+
+    if (!req.session.user.isLoggedIn) {
+        return res.status(400).json({message: "User not logged in"});
+    }
+    if (!req.body.threadid || !req.body.comment || (req.body.comment.length > 200)) {
+        return res.status(400).json({message: "Body parameters not fulfilled"});
+    }
+
+    const username = req.session.user.username;
+    
+    try {
+        await pool.query("INSERT INTO comments(threadid, username, comment) VALUES ($1, $2, $3)", [req.body.threadid, username, req.body.comment]);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+
+    return res.status(200).json({ ok : true});
+    
+}
