@@ -23,6 +23,8 @@ const doLogin = async (e) => {
   }
 };
 
+//todo doLogin() needs to handle the user not existing case in which case user needs to be created.
+
 export default function Login() {
   return (
     <div>
