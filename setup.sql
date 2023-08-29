@@ -14,6 +14,7 @@ CREATE TABLE threads(
 	threadid SERIAL PRIMARY KEY,
     username VARCHAR(50) REFERENCES userlogin(username),
     messagebody VARCHAR(2000),
+    url VARCHAR(200),
     dt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 DROP TABLE IF EXISTS comments;
