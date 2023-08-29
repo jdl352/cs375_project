@@ -38,14 +38,14 @@ export async function setUserData (req, res) {
     }
 
     if (   !req.body.country || !req.body.likedthreads || !req.body.favgenres
-        || req.body.country.length > 50) {
+        || req.body.country.length > 50 || !Array.isArray(req.body.likedthreads || !Array.isArray(favgenres))) {
         return res.status(400).json({message: "Body parameters not fulfilled"});
     }
 
-    const username = req.session.user.username;
     try {
-        values = [req.body.country, req.body.favgenres, req.body.likedthreads];
-        await pool.query("INSERT INTO userLogin(country, favgenres, likedthreads) VALUES ($1, $2, $3)", values);
+        values = [req.body.country, req.body.favgenres, req.body.likedthreads, req.session.user.username];
+        await pool.query(`UPDATE userLogin SET "country" = $1, "favgenres" = $2, "likedthreads" = $3
+        WHERE "username" = $4`, values);
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
