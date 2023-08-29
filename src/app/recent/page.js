@@ -1,52 +1,54 @@
 import Link from "next/link";
 import styles from "./recent.module.css";
+import ArticleRow from "@/components/articleRow/articleRow";
 
-let articles = [
-  {
-    name: "Article 1",
-    date: "20230814",
-    category: "Science",
-    id: 1,
-    likes: 10,
-  },
-  {
-    name: "Article 2",
-    date: "20230810",
-    category: "Politics",
-    id: 2,
-    likes: 20,
-  },
-  {
-    name: "Article 3",
-    date: "20230728",
-    category: "Environment",
-    id: 3,
-    likes: 5,
-  },
-];
+const NewsAPI = require("newsapi");
+const newsapi = new NewsAPI("f523c32aa31c4dafa3ee1f62f6890100");
 
-articles.sort((a, b) => b.date - a.date);
+let fetch_size = 20;
+
+async function getArticles() {
+  let articles = [];
+
+  let response = await newsapi.v2.topHeadlines({
+    language: "en",
+    pageSize: fetch_size,
+  });
+
+  for (let article of response.articles) {
+    articles.push(article);
+  }
+
+  let ids = 0;
+
+  return articles.map((data) => (
+    <ArticleRow
+      title={data.title}
+      date={data.publishedAt}
+      source={data.source.name}
+      id={ids++}
+      link={data.url}
+      tnail={data.urlToImage}
+      author={data.author}
+      likes={0}
+    />
+  ));
+}
 
 // Format date to look nicer, might be different
 // for each api result as well
 
 export default function Recent() {
-  const articleRows = articles.map((article) => (
-    <tr key={article.id}>
-      <td>
-        <Link href={"/article?id=" + article.id}>{article.name}</Link>
-      </td>
-      <td>{article.category}</td>
-      <td>{article.date}</td>
-    </tr>
-  ));
+  const articleRows = getArticles();
   return (
     <table className={styles.recentTable}>
       <thead>
-        <tr>
-          <td>Name</td>
-          <td>Tags</td>
-          <td>Publish Date</td>
+      <tr>
+          <td></td>
+          <td>Title</td>
+          <td>Source</td>
+          <td>Published</td>
+          <td>Likes</td>
         </tr>
       </thead>
       <tbody>{articleRows}</tbody>
