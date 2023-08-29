@@ -4,6 +4,9 @@ const BASE_URL = "https://newsapi.org/v2";
 import React from "react";
 import ArticleRow from "../../components/articleRow/articleRow";
 
+const NewsAPI = require("newsapi");
+const newsapi = new NewsAPI("API Key");
+
 let fetch_size = 20;
 
 async function getArticles() {
@@ -30,7 +33,11 @@ async function getArticles() {
       source={data.source.name}
       id={ids++}
       link={data.url}
-      tnail={data.urlToImage}
+      tnail={
+        data.urlToImage != null
+          ? data.urlToImage
+          : "https://e7.pngegg.com/pngimages/422/126/png-clipart-newspaper-computer-icons-symbol-news-icon-text-logo.png"
+      }
       author={data.author}
       likes={data.likes}
     />
