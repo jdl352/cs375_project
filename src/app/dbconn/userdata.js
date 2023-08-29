@@ -26,3 +26,5 @@ export async function getUserData (req, res) {
     }
     
 }
+
+//IMP todo create function to addUserData / modifyUserData for favgenres and likedarticles
