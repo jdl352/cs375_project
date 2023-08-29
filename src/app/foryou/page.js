@@ -57,15 +57,5 @@ export default function ForYou() {
       </thead>
       <tbody>{articleRows}</tbody>
     </table>
-    <body>
-      <table className={styles.forYouTable}>
-        <thead>
-          <td>Name</td>
-          <td>Tags</td>
-          <td>Publish Date</td>
-        </thead>
-        <tbody>{articleRows}</tbody>
-      </table>
-    </body>
   );
 }
