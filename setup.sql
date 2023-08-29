@@ -6,8 +6,9 @@ CREATE TABLE userlogin(
 	id SERIAL PRIMARY KEY,
     username VARCHAR(50) UNIQUE,
     password VARCHAR(100),
+    country VARCHAR(50),
     favgenres text[],
-    likedarticles text[]
+    likedthreads text[]
 );
 DROP TABLE IF EXISTS threads;
 CREATE TABLE threads(
