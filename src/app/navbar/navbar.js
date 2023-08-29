@@ -6,7 +6,7 @@ import { getServerSideProps } from "@/components/getProps";
 
 export default function Navbar() {
   return (
-    <header>
+    <header className={styles.navbar}>
       <ul className={styles.navbar_left}>
         <li>
           <Link href="/foryou">For You</Link>

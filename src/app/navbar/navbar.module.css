@@ -1,3 +1,7 @@
+.navbar {
+  background-color: gray;
+}
+
 .navbar_left {
   list-style: none;
   width: fit-content;
