@@ -8,15 +8,17 @@ export default function ArticleRow(props) {
   const [likes, setLikes] = React.useState(props.likes);
   const [voted, setVoted] = React.useState(false);
 
+  const [rowId] = React.useState(props.id);
+
   function increase_likes() {
     if (!voted) {
       setVoted(true);
       setLikes(likes + 1);
-      document.getElementById("up" + props.id).style.backgroundColor = "blue";
+      document.getElementById("up" + rowId).style.backgroundColor = "blue";
     } else {
       setVoted(false);
       setLikes(likes - 1);
-      document.getElementById("up" + props.id).style.backgroundColor = null;
+      document.getElementById("up" + rowId).style.backgroundColor = null;
     }
   }
 
@@ -24,22 +26,22 @@ export default function ArticleRow(props) {
     if (!voted) {
       setVoted(true);
       setLikes(likes - 1);
-      document.getElementById("down" + props.id).style.backgroundColor = "red";
+      document.getElementById("down" + rowId).style.backgroundColor = "red";
     } else {
       setVoted(false);
       setLikes(likes + 1);
-      document.getElementById("down" + props.id).style.backgroundColor = null;
+      document.getElementById("down" + rowId).style.backgroundColor = null;
     }
   }
 
   return (
     <tr className={styles.artRow} id={props.id}>
       <td>
-      <Link href={props.link}><Image src={props.tnail} width={200} height={150} alt="thumbnail" /></Link>
+        <Link href={props.link}>
+          <Image src={props.tnail} width={200} height={150} alt="thumbnail" />
+        </Link>
       </td>
-      <td className={styles.title}>
-        {props.title}
-      </td>
+      <td className={styles.title}>{props.title}</td>
       <td>
         {props.author}
         <br />

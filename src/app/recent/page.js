@@ -3,7 +3,7 @@ import styles from "./recent.module.css";
 import ArticleRow from "@/components/articleRow/articleRow";
 
 const NewsAPI = require("newsapi");
-const newsapi = new NewsAPI("f523c32aa31c4dafa3ee1f62f6890100");
+const newsapi = new NewsAPI("API Key");
 
 let fetch_size = 20;
 
@@ -43,7 +43,7 @@ export default function Recent() {
   return (
     <table className={styles.recentTable}>
       <thead>
-      <tr>
+        <tr>
           <td></td>
           <td>Title</td>
           <td>Source</td>

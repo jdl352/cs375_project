@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import styles from "./navbar.module.css";
 import { getServerSideProps } from "@/components/getProps";
