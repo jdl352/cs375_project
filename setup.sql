@@ -5,19 +5,23 @@ DROP TABLE IF EXISTS userlogin;
 CREATE TABLE userlogin(
 	id SERIAL PRIMARY KEY,
     username VARCHAR(50) UNIQUE,
-    password VARCHAR(100)
+    password VARCHAR(100),
+    country VARCHAR(50),
+    favgenres text[],
+    likedthreads text[]
 );
 DROP TABLE IF EXISTS threads;
 CREATE TABLE threads(
-	threadID SERIAL PRIMARY KEY,
+	threadid SERIAL PRIMARY KEY,
     username VARCHAR(50) REFERENCES userlogin(username),
     messagebody VARCHAR(2000),
+    url VARCHAR(200),
     dt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-DROP TABLE IF EXISTS comment;
-CREATE TABLE comment(
-	commentID SERIAL PRIMARY KEY,
-    threadID INT REFERENCES threads(threadID),
+DROP TABLE IF EXISTS comments;
+CREATE TABLE comments(
+	commentid SERIAL PRIMARY KEY,
+    threadid INT REFERENCES threads(threadid),
     username VARCHAR(50) REFERENCES userlogin(username),
     comment VARCHAR(200),
     dt TIMESTAMP DEFAULT CURRENT_TIMESTAMP

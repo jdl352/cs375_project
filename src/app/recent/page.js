@@ -28,7 +28,11 @@ async function getArticles() {
       source={data.source.name}
       id={ids++}
       link={data.url}
-      tnail={data.urlToImage}
+      tnail={
+        data.urlToImage != null
+          ? data.urlToImage
+          : "https://e7.pngegg.com/pngimages/422/126/png-clipart-newspaper-computer-icons-symbol-news-icon-text-logo.png"
+      }
       author={data.author}
       likes={0}
     />
