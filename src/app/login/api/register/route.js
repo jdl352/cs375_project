@@ -37,7 +37,7 @@ export async function POST(req) {
 
   try {
     await pool.query(
-      "INSERT INTO userLogin (username, password) VALUES ($1, $2)",
+      "INSERT INTO userlogin (username, password) VALUES ($1, $2)",
       [username, hash]
     );
   } catch (error) {

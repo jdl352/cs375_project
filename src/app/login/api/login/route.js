@@ -1,11 +1,14 @@
 import pool from "../../../../components/db";
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers"
 
 let argon2 = require("argon2");
 
 export async function POST(req) {
   const body = await req.json();
-  const { username, password } = body;
+
+  const username = body.username;
+  const password = body.password;
 
   if (!username || !password) {
     return NextResponse.json(
@@ -18,7 +21,7 @@ export async function POST(req) {
 
   try {
     let result = await pool.query(
-      "SELECT password FROM userLogin WHERE username = $1",
+      `SELECT password FROM userlogin WHERE username = $1`,
       [username]
     );
 
@@ -52,9 +55,8 @@ export async function POST(req) {
       );
     }
 
-    let res = NextResponse.next();
-    res.cookies.set("username", username);
-    return res.json({ status: 200 });
+    cookies().set("username", username);
+    return NextResponse.json({ message: "success" }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ message: error.message }, { status: 500 });
   }
