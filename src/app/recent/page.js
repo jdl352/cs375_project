@@ -34,7 +34,6 @@ async function getArticles() {
           : "https://e7.pngegg.com/pngimages/422/126/png-clipart-newspaper-computer-icons-symbol-news-icon-text-logo.png"
       }
       author={data.author}
-      likes={0}
     />
   ));
 }
@@ -52,7 +51,6 @@ export default function Recent() {
           <td>Title</td>
           <td>Source</td>
           <td>Published</td>
-          <td>Likes</td>
         </tr>
       </thead>
       <tbody>{articleRows}</tbody>
