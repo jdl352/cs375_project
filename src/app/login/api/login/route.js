@@ -21,7 +21,7 @@ export async function POST(req) {
 
   try {
     let result = await pool.query(
-      `SELECT password FROM userlogin WHERE username = $1`,
+      `SELECT password, favgenres FROM userlogin WHERE username = $1`,
       [username]
     );
 
@@ -36,6 +36,7 @@ export async function POST(req) {
     }
 
     let hashed = result.rows[0].password;
+    let cats = result.rows[0].favgenres;
 
     let verifyResult;
     try {
@@ -56,6 +57,7 @@ export async function POST(req) {
     }
 
     cookies().set("username", username);
+    cookies().set("categories", cats);
     return NextResponse.json({ message: "success" }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ message: error.message }, { status: 500 });
