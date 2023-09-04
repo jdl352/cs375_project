@@ -48,25 +48,6 @@ export default function ArticleRow(props) {
         {props.source}
       </td>
       <td>{props.date}</td>
-      <td className={styles.likes}>
-        {likes}
-        <button onClick={increase_likes} id={"up" + props.id}>
-          <Image
-            src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-up-01-512.png"
-            width={30}
-            height={30}
-            alt="upvote"
-          ></Image>
-        </button>
-        <button onClick={decrease_likes} id={"down" + props.id}>
-          <Image
-            src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-down-01-512.png"
-            width={30}
-            height={30}
-            alt="downvote"
-          ></Image>
-        </button>
-      </td>
     </tr>
   );
 }
