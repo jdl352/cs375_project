@@ -14,6 +14,8 @@ export default async function getArticles(props) {
       language: "en",
       pageSize: fetch_size,
       category: props.category,
+      category: props.categoryTwo,
+      category: props.categoryThree,
     });
   
     for (let article of response.articles) {
