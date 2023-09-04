@@ -1,4 +1,4 @@
-import pool from "../../components/db";
+import pool from "../../../components/db";
 import { withIronSessionApiRoute } from "iron-session/next";
 
 let argon2 = require("argon2");
