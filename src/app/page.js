@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
-        This is where we can have an overview
+        Welcome to the Landing Page!
       </div>
     </main>
   );
