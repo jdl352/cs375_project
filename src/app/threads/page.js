@@ -1,7 +1,7 @@
 import styles from "./threads.module.css";
 import { getThreads } from "./getThreads/getThreads";
 
-async function Threads() {
+export default function Threads() {
   const rows = getThreads();
   console.log(rows);
   return (
@@ -19,5 +19,3 @@ async function Threads() {
     </table>
   );
 }
-
-export default Threads;
