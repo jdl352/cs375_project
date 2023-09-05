@@ -1,23 +1,18 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import styles from "./threads.module.css";
-import { getThreadDataAll } from "../dbconn/threaddata";
+//import { getThreadDataAll } from "./api/route";
 
-function Threads() {
+async function Threads() {
   const [threadData, setThreadData] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const data = await getThreadDataAll();
-        setThreadData(data);
-      } catch (error) {
-        console.error("Error fetching threads:", error);
-      }
-    }
+  let result = await fetch("/threads/api", {
+    method: "POST",
+    headers: { "Content-Type": "application/json"},
+    
+  })
 
-    fetchData();
-  }, []);
+  setThreadData(result.rows[0]);
 
   return (
     <table className={styles.threadTable}>

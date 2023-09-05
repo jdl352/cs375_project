@@ -1,5 +1,5 @@
 const { Pool } = require('pg');
-let env = require("../env.json");
+let env = require("env.json");
 
 const pool = new Pool(env);
 
