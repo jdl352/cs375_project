@@ -7,6 +7,7 @@ export function getThreads() {
   })
     .then((res) => res.json())
     .then((res) => {
+      console.log(res);
       let threadData = res.result.rows;
       let rows = threadData.map((thread) => (
         <ThreadRow
