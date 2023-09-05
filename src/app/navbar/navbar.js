@@ -17,6 +17,9 @@ export default function Navbar() {
         <li>
           <Link href="/popular">Popular</Link>
         </li>
+        <li>
+          <Link href="/threads">Threads</Link>
+        </li>
       </ul>
       <ul className={styles.navbar_right}>
         <li>
