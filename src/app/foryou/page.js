@@ -3,7 +3,7 @@ import styles from "./foryou.module.css";
 import ArticleRow from "../../components/articleRow/articleRow";
 
 const NewsAPI = require("newsapi");
-const newsapi = new NewsAPI("API Key");
+const newsapi = new NewsAPI("7f5870e601864450971995b45b7846ed");
 
 let fetch_size = 20;
 

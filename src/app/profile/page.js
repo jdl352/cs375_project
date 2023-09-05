@@ -1,7 +1,9 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import SubForm from "./subscribe/subForm";
 
 export default function Profile() {
+  
   let username;
   if (cookies().has("username")) {
     username = cookies().get("username").value;
@@ -10,20 +12,13 @@ export default function Profile() {
   }
 
   let favoriteCategories = cookies().get("categories").value.split(",");
-
-  let catRows = favoriteCategories.map((data) => (
-    <tr>{data}</tr>
-  ))
+  console.log(favoriteCategories);
 
   return <div>
-    <h2>{username}</h2>
+    <h2>{username} Preferences</h2>
     <div>
-      <table>
-        <thead>
-          <tr>Favorite Categories</tr>
-        </thead>
-        {catRows}
-      </table>
+        <SubForm 
+        cats={favoriteCategories}/>
     </div>
   </div>;
 }
