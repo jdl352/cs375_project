@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "**" },
       { protocol: "http", hostname: "**" },
-      { protocol: "https", hostname: "www.si.com"}
+      { protocol: "https", hostname: "www.si.com" },
     ],
   },
   async redirects() {

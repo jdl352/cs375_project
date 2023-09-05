@@ -1,11 +1,10 @@
-"use client"
+"use client";
 import Link from "next/link";
 import styles from "./navbar.module.css";
 
 // const props = await getServerSideProps();
 
 export default function Navbar() {
-
   return (
     <header className={styles.navbar}>
       <ul className={styles.navbar_left}>
@@ -14,6 +13,12 @@ export default function Navbar() {
         </li>
         <li>
           <Link href="/recent">Recent</Link>
+        </li>
+        <li>
+          <Link href="/popular">Popular</Link>
+        </li>
+        <li>
+          <Link href="/threads">Threads</Link>
         </li>
       </ul>
       <ul className={styles.navbar_right}>
