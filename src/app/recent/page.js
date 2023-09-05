@@ -8,11 +8,7 @@ import getArticles from "@/components/getArticles/getArticles";
 // for each api result as well
 
 export default function Recent() {
-  const articleRows = getArticles({
-    category: "science",
-    categoryTwo: "technology", 
-    categoryThree: "health",   
-  });
+  const articleRows = getArticles(null);
   return (
     <table className={styles.recentTable}>
       <thead>

@@ -15,9 +15,6 @@ export default function Navbar() {
         <li>
           <Link href="/recent">Recent</Link>
         </li>
-        <li>
-          <Link href="/popular">Popular</Link>
-        </li>
       </ul>
       <ul className={styles.navbar_right}>
         <li>
