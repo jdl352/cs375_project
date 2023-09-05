@@ -15,9 +15,6 @@ export default function Navbar() {
           <Link href="/recent">Recent</Link>
         </li>
         <li>
-          <Link href="/popular">Popular</Link>
-        </li>
-        <li>
           <Link href="/threads">Threads</Link>
         </li>
       </ul>
